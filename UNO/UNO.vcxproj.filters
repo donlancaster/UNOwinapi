@@ -1,0 +1,397 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UNODlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowDraw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="UNODlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowDraw.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameProcess.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameField.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="imgs\00.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\01.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\02.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\03.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\04.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\05.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\5.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\06.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\07.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\08.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\09.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\010.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\10.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\011.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\11.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\012.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\12.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\13.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\14.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\15.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\16.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\17.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\18.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\19.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\20.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\21.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\22.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\23.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\24.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\25.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\26.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\27.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\28.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\29.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\30.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\31.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\32.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\33.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\34.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\35.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\36.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\37.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\38.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\39.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\110.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\111.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\112.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\210.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\211.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\212.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\310.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\311.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\312.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\arrowl.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\arrowr.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\back0.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\back1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\backcards.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\backcards2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\backopt.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Учеба %3bc\UNO\UNO\imgs\backopt.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\backpl.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\backpl1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\backpl2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\backpl3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Учеба %3bc\UNO\UNO\imgs\backplnow.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\backrec.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Учеба %3bc\UNO\UNO\imgs\backrec.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\blue.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\btn00.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\btn01.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\btn02.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\btn03.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\btn04.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\btn05.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\btn06.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\cards.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\UNO\UNO\imgs\chooseNames.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\clearrecords.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\continue.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Учеба %3bc\UNO\UNO\imgs\continue.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\exit.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\green.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\icon.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\icon1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\logo.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\magic.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Учеба %3bc\UNO\UNO\imgs\magic.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\nextpl.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Учеба %3bc\UNO\UNO\imgs\nextround.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\nextround.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\nowmove.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Учеба %3bc\UNO\UNO\imgs\nowmove.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\pause.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Учеба %3bc\UNO\UNO\imgs\pauseexit.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\pauseexit.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\playvs.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\plcount.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\plpause.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Учеба %3bc\UNO\UNO\imgs\plpause.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\red.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Учеба %3bc\UNO\UNO\imgs\roundRecords.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\roundRecords.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\uno.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\uno1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\unopl.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\unopl1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\vsbot.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\vsbot1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\vspl.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\vspl1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="imgs\yellow.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="UNO.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
