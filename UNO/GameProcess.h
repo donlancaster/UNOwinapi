@@ -197,6 +197,15 @@ public:
 		deckBot.DelCard(0);
 	}
 	
+
+
+
+
+
+
+
+	//здесь надо сделать анимацию карты
+
 	void PutCard(size_t plNum, size_t num, BOOL interrupt) //положить карту игрока в колоду игры
 	{
 		int c = (*(pl.begin() + plNum))->GetColor(num); //цвет карты, которую кладут
@@ -208,16 +217,30 @@ public:
 		}
 	}
 
-	BOOL HaveNeedColorCard(Player* pl, int color)
+
+
+
+
+
+
+
+
+
+	BOOL PlayerHasNeededColorCard(Player* pl, int color)
 	{
 		for (auto it : pl->color)
 			if (it == color && it <= 3)
 				return TRUE;
 		return FALSE;
 	}
+
+
+	
 	BOOL IsCorrectCard(Player* pl, int c, int n, BOOL spcard)
+	//проверка выбранной карты
 	{
 		int c1 = cards.GetColor(cards.size - 1);
+		//цвет и номер последней добавленной карты
 		int n1 = cards.GetType(cards.size - 1);
 		if (!spcard) {
 			if (c1 <= 3 && n1 <= 9)
@@ -226,7 +249,8 @@ public:
 					if (n <= 12)
 						return TRUE;
 				if (n == n1) return TRUE;
-				if (c == 5 || (c == 4 && !HaveNeedColorCard(pl, c1)))
+				
+				if (c == 5 || (c == 4 && !PlayerHasNeededColorCard(pl, c1)))
 					return TRUE;
 			}
 			if (c1 <= 3 && (n1 == 10 || n1 == 11 || n1 == 12))
@@ -235,7 +259,7 @@ public:
 					if (n <= 12)
 						return TRUE;
 				if (n == n1) return TRUE;
-				if (c == 5 || (c == 4 && !HaveNeedColorCard(pl, c1)))
+				if (c == 5 || (c == 4 && !PlayerHasNeededColorCard(pl, c1)))
 					return TRUE;
 			}
 			if (c1 == 5)
@@ -243,7 +267,7 @@ public:
 				if (currentColor == c)
 					if (n <= 12)
 						return TRUE;
-				if (c == 5 || (c == 4 && !HaveNeedColorCard(pl, c1)))
+				if (c == 5 || (c == 4 && !PlayerHasNeededColorCard(pl, c1)))
 					return TRUE;
 			}
 			if (c1 == 4)
@@ -251,7 +275,7 @@ public:
 				if (currentColor == c)
 					if (n <= 12)
 						return TRUE;
-				if (c == 5 || (c == 4 && !HaveNeedColorCard(pl, c1)))
+				if (c == 5 || (c == 4 && !PlayerHasNeededColorCard(pl, c1)))
 					return TRUE;
 			}
 		}
@@ -325,6 +349,7 @@ public:
 		BOOL y = IsCorrectCard(pl[cureentTurn], c, n, specCard);
 		if(y){
 			//wd.DestroyMessageAboutPlayers();
+			//проходим по каждому игроку и провер€ем, если уно, нажал ли он на кнопку
 			for (size_t i = 0; i < pl.size(); i++)
 			{
 				if (pl[i]->ForgotUno()){
@@ -370,8 +395,14 @@ public:
 				specCard = 1;
 			}
 			
+
+
+
+
+
+
 			if (needUpdate && !needUno)
-				UpdateAfterMove(wd);
+				UpdateAfterMove(wd); //считаем очки игроков и переходим к следующему
 			else {
 				if (!checkColor)
 					if (!needUno)
@@ -506,11 +537,18 @@ public:
 		NextPlayer();
 		CheckScores();
 	}
+
+
+	void CardAnimation(WindowDraw& wd, int id) {
+
+	}
+
 	void Update(WindowDraw & wd){
 		wd.UpdateDetails(pl, direction, cureentTurn, cards, checkColor, currentColor);
 	}
 
 	Player* GetNextPlayer(){
+		
 		if (direction) {
 			if (VsBot)
 			{
@@ -601,16 +639,16 @@ public:
 	}
 	void SetEndRoundScores(){
 		size_t scoreWin = 0;
-		int n = 0;
+		int winnerId = 0;
 		for (size_t i = 0; i < pl.size(); i++){
 			if (pl[i]->size == 0)
-				n = i;
+				winnerId = i;
 			else {
 				scoreWin += pl[i]->GetScore();
 				pl[i]->SetScore(0);
 			}
 		}
-		pl[n]->SetScore(scoreWin);
+		pl[winnerId]->SetScore(scoreWin);
 	}
 
 	int DeckChecked(WindowDraw & wd)
@@ -632,6 +670,7 @@ public:
 	}
 
 	BOOL IsPlayerHasNeededCard(Player * pl, BOOL sCard)
+		//есть ли у игрока нужна€ карта дл€ ответа
 	{
 		for (size_t i = 0; i < pl->size; i++)
 		{
@@ -684,17 +723,18 @@ public:
 		for (auto it : pl)
 			it->DelName();
 	}
-	BOOL IsCorrectNames(vector<HWND> &plnames) {
+	BOOL IsCorrectNames(vector<HWND> &plnames) {//проверка ввода имен игроков
 		TCHAR** tmp = new TCHAR*[plnames.size()];
 		for (size_t i = 0; i < pl.size() && i < plnames.size(); i++)
 		{
 			size_t l = GetWindowTextLength(plnames[i]);
 			if (l < 2){
 				delete[] tmp;
+				MessageBox(NULL, TEXT("ƒлина имени должна быть от 2 до 11 символов"),TEXT("ќшибка!"), MB_OK);
 				return FALSE;
 			}
 			TCHAR * t = new TCHAR[l + 1];
-			GetWindowText(plnames[i], t, 12);
+			GetWindowText(plnames[i], t, 11);
 			if (i != 0){
 				for (size_t j = 0; j < i; j++){
 					if (_tcscmp(t, tmp[j]) == 0)
@@ -893,6 +933,7 @@ public:
 	BOOL IsNowBot(){
 		return !pl[cureentTurn]->noBot;
 	}
+
 	size_t GetPlayerCount(){
 		return pl.size();
 	}

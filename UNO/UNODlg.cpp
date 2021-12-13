@@ -47,14 +47,18 @@ void UNODlg::Cls_OnCommand(HWND hwnd, int id, HWND hwndCtl, UINT codeNotify)
 		gp.ClearPlayersNames();
 		wd.SetHeadMenu();
 	}
-	if (id >= ID_СARDS && id <= (ID_СARDS + gp.GetCardsCount()) && !gp.checkColor && !gp.botGo) //нажатие на карты
+	if (id >= ID_СARDS && id <= (ID_СARDS + gp.GetCardsCount()) && !gp.checkColor && !gp.botGo) 
+		//нажатие на карту
 	{
-		if (!gp.checkColor && !gp.needUno){
+		if (!gp.checkColor && !gp.needUno) {
 			if (gp.Move(id, wd))
+				
 			{
 				if (!gp.checkColor)
 					gp.playerGo = TRUE;
+
 				gp.Update(wd);
+
 				if (!gp.checkColor && !gp.needUno) {
 					gp.playerGo = FALSE;
 					if (gp.VsBot) gp.botGo = TRUE;
@@ -64,10 +68,10 @@ void UNODlg::Cls_OnCommand(HWND hwnd, int id, HWND hwndCtl, UINT codeNotify)
 							wd.DrawPlPause(NULL, gp.GetCurrentPlayerName(), gp.mesageAboutPlayers, 0, FALSE);
 							gp.ResetMessage();
 						}
-						else{
+						else {
 							wd.MessageAboutPlayers(NULL, gp.GetCurrentPlayerName(), gp.mesageAboutPlayers);
 							gp.ResetMessage();
-							if (gp.IsNowBot()){
+							if (gp.IsNowBot()) {
 								gp.nowTimer = true;
 								SetTimer(hwnd, 1, 1000, NULL);
 							}
@@ -84,6 +88,12 @@ void UNODlg::Cls_OnCommand(HWND hwnd, int id, HWND hwndCtl, UINT codeNotify)
 	if (id == ID_DECK && !gp.checkColor && !gp.needUno && !gp.botGo) //нажатие на колоду
 	{
 		int dCheck = gp.DeckChecked(wd);
+
+
+
+
+
+
 		if (dCheck == 1) //если после взятия карты из колоды нечем ходить
 		{
 			gp.UpdateAfterMove(wd); //следующий игрок
@@ -91,7 +101,7 @@ void UNODlg::Cls_OnCommand(HWND hwnd, int id, HWND hwndCtl, UINT codeNotify)
 				wd.DrawPlPause(gp.GetPrevPlayerName(), gp.GetCurrentPlayerName(), TEXT(" нечем ходить.\n"), 0, FALSE);
 			else {
 				wd.MessageAboutPlayers(gp.GetPrevPlayerName(), gp.GetCurrentPlayerName(), TEXT(" нечем ходить.\n"));
-				if (gp.IsNowBot()){
+				if (gp.IsNowBot()) {
 					gp.botGo = TRUE;
 					gp.nowTimer = true;
 					SetTimer(hwnd, 1, 1000, NULL);
@@ -102,9 +112,19 @@ void UNODlg::Cls_OnCommand(HWND hwnd, int id, HWND hwndCtl, UINT codeNotify)
 				}
 			}
 		}
-		else if (dCheck == 0){
+		else if (dCheck == 0) {
 			gp.Update(wd);
 		}
+
+
+
+
+
+
+
+
+
+
 	}
 	if (id >= ID_COLORS_RED && id <= ID_COLORS_GREEN && gp.checkColor && !gp.botGo) //выбор цвета следующих карт
 	{
@@ -119,7 +139,7 @@ void UNODlg::Cls_OnCommand(HWND hwnd, int id, HWND hwndCtl, UINT codeNotify)
 			gp.currentColor = 2;
 		if (id == ID_COLORS_GREEN)
 			gp.currentColor = 3;
-		TCHAR * tmpn = new TCHAR[_tcslen(gp.GetCurrentPlayerName()) + 1];
+		TCHAR* tmpn = new TCHAR[_tcslen(gp.GetCurrentPlayerName()) + 1];
 		_tcscpy(tmpn, gp.GetCurrentPlayerName());
 		if (!gp.needUno) {
 			gp.UpdateAfterMove(wd);
@@ -131,7 +151,7 @@ void UNODlg::Cls_OnCommand(HWND hwnd, int id, HWND hwndCtl, UINT codeNotify)
 			gp.nowTimer = true;
 			SetTimer(hwnd, 1, 100, NULL);
 		}
-		
+
 		TCHAR* buf = NULL;
 		if (gp.mesageAboutPlayers == NULL) {
 			buf = new TCHAR[_tcslen(tmpn) + 15 + 1];
@@ -148,13 +168,13 @@ void UNODlg::Cls_OnCommand(HWND hwnd, int id, HWND hwndCtl, UINT codeNotify)
 		if (!gp.needUno) {
 			gp.playerGo = FALSE;
 			if (!gp.CheckToEnd(wd)) {
-				if (!gp.VsBot){
+				if (!gp.VsBot) {
 					wd.DrawPlPause(NULL, gp.GetCurrentPlayerName(), gp.mesageAboutPlayers, 0, FALSE); //пауза после выбора цвета игроком
 					gp.ResetMessage();
 				}
 				else {
 					wd.MessageAboutPlayers(NULL, gp.GetCurrentPlayerName(), gp.mesageAboutPlayers);
-					if (gp.IsNowBot()){
+					if (gp.IsNowBot()) {
 						gp.botGo = TRUE;
 						gp.nowTimer = true;
 						SetTimer(hwnd, 1, 1000, NULL);
@@ -204,10 +224,10 @@ void UNODlg::Cls_OnCommand(HWND hwnd, int id, HWND hwndCtl, UINT codeNotify)
 		else gp.OutOfPause(wd);
 		gp.startGame = FALSE;
 	}
-	if (id == ID_MAGIC){
+	if (id == ID_MAGIC) {
 		gp.NextRandomRound(wd);
 	}
-	if (id == ID_END_NOW_ROUND){
+	if (id == ID_END_NOW_ROUND) {
 		gp.EndNowRound(wd);
 	}
 	if (id == ID_END_GAME)
@@ -282,20 +302,20 @@ void UNODlg::Cls_OnVScroll(HWND hwnd, HWND hwndCtl, UINT code, int pos)
 
 void UNODlg::Cls_OnTimer(HWND hwnd, UINT id)
 {
-	if (gp.needUno){
+	if (gp.needUno) {
 		time_t unotime = time(NULL) - gp.StartTime;
 		struct tm Time = *(localtime(&unotime));
-		if (Time.tm_sec > 3){
+		if (Time.tm_sec > 3) {
 			KillTimer(hwnd, 1);
 			gp.nowTimer = false;
 			gp.SetUno(wd, false);
 		}
 	}
-	else if (gp.VsBot){
+	else if (gp.VsBot) {
 		KillTimer(hwnd, 1);
 		gp.nowTimer = false;
 		Sleep(400);
-		if (gp.botGo){
+		if (gp.botGo) {
 			gp.BotMove(wd);
 			gp.Update(wd);
 			if (!gp.CheckToEnd(wd)) {
@@ -322,7 +342,7 @@ BOOL CALLBACK UNODlg::DlgProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lPa
 	return FALSE;
 }
 
-void UNODlg::AddToRecordsTable(vector<TCHAR*> pl, vector<int> sc){
+void UNODlg::AddToRecordsTable(vector<TCHAR*> pl, vector<int> sc) {
 	ReadRecordsTable();
 	players.push_back(pl);
 	scores.push_back(sc);
@@ -330,15 +350,15 @@ void UNODlg::AddToRecordsTable(vector<TCHAR*> pl, vector<int> sc){
 	SaveRecordsTable();
 }
 
-void UNODlg::SaveRecordsTable(){
+void UNODlg::SaveRecordsTable() {
 	ofstream fout("records.txt", ios_base::out | ios::trunc);
 	if (fout.is_open())
 	{
-		for (size_t i = 0; i < players.size() && i < scores.size() && i < 6; i++){
+		for (size_t i = 0; i < players.size() && i < scores.size() && i < 6; i++) {
 			for (size_t j = 0; j < players[i].size() && j < scores[i].size(); j++)
 			{
 				int length = WideCharToMultiByte(CP_ACP, 0, players[i][j], -1, NULL, 0, 0, 0);
-				char *name = new char[length];
+				char* name = new char[length];
 				WideCharToMultiByte(CP_ACP, 0, players[i][j], -1, name, length, 0, 0);
 				fout.write(name, length - 1);
 				delete[] name;
@@ -347,7 +367,7 @@ void UNODlg::SaveRecordsTable(){
 				_itot_s(scores[i][j], t, 10);
 
 				length = WideCharToMultiByte(CP_ACP, 0, t, -1, NULL, 0, 0, 0);
-				char *score = new char[length];
+				char* score = new char[length];
 				WideCharToMultiByte(CP_ACP, 0, t, -1, score, length, 0, 0);
 				fout.write(score, length - 1);
 				delete[] score;
@@ -360,10 +380,10 @@ void UNODlg::SaveRecordsTable(){
 	}
 }
 
-void UNODlg::ClearRecords(){
-	if (players.size() != 0){
-		for (auto pl1 : players){
-			for (auto pl2 : pl1){
+void UNODlg::ClearRecords() {
+	if (players.size() != 0) {
+		for (auto pl1 : players) {
+			for (auto pl2 : pl1) {
 				delete[] pl2;
 			}
 		}
@@ -373,7 +393,7 @@ void UNODlg::ClearRecords(){
 		scores.erase(scores.begin(), scores.begin() + scores.size());
 }
 
-void UNODlg::ReadRecordsTable(){
+void UNODlg::ReadRecordsTable() {
 	ifstream fin("records.txt", ios_base::in);
 	if (fin.is_open())
 	{
@@ -383,9 +403,9 @@ void UNODlg::ReadRecordsTable(){
 			fin.getline(str, 50);
 			vector<TCHAR*> tmp1;
 			vector<int> tmp2;
-			while (str[0] != '\0'){
+			while (str[0] != '\0') {
 				int length = MultiByteToWideChar(CP_ACP, 0, str, -1, NULL, 0);
-				wchar_t *p1 = new wchar_t[length];
+				wchar_t* p1 = new wchar_t[length];
 				MultiByteToWideChar(CP_ACP, 0, str, -1, p1, length);
 				tmp1.push_back(p1);
 				fin.getline(str, 50);
@@ -404,7 +424,7 @@ void UNODlg::ReadRecordsTable(){
 	}
 }
 
-void UNODlg::SortPlayersInRecordsTable(){
+void UNODlg::SortPlayersInRecordsTable() {
 	for (size_t i = 0; i < scores.size() - 1; i++)
 	{
 		for (size_t j = i + 1; j < scores.size(); j++)

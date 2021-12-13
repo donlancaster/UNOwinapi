@@ -82,8 +82,19 @@ public:
 	void SetDetailsField(HWND hDialog, HINSTANCE hInst, vector<Player*> &pl, BOOL dir, size_t nowmove, Player & cards, BOOL need, int cnum = 0)
 	{
 		DestroyDetailsField(); //очистка старых данных с экрана
-		DrawCards(hDialog, hInst, *(pl[0])); //отрисовка карт текущего игрока
 		DrawDirection(hDialog, hInst, dir);
+
+
+		DrawCards(hDialog, hInst, *(pl[0])); //отрисовка карт текущего игрока
+
+		//if(nowmove == 1)
+		
+		DrawAnimation(hDialog, hInst, cards, *(pl[0]));
+		wchar_t asd[50];
+		_itow(cards.size, asd, 10);
+		OutputDebugString(asd);
+
+		
 		DrawDeck(hDialog, hInst, cards);
 		SetNeedColor(hDialog, need);
 		SetNowColor(hDialog, hInst, cnum);
@@ -296,7 +307,7 @@ public:
 		unoBtn = NULL;
 	}
 
-	//отрисовка карт
+	//отрисовка карт игрока
 	void DrawCards(HWND hDialog, HINSTANCE hInst, Player& cards)
 	{
 		RECT rw;
@@ -334,6 +345,30 @@ public:
 		ShowWindow(arrow, SW_HIDE);
 		ShowWindow(arrow, SW_SHOW);
 	}
+	
+	
+
+
+	void DrawAnimation(HWND hDialog, HINSTANCE hInst, Player& cards, Player& playerCards)// анимация 
+	{
+
+		if (cards.size == 0)
+			return;
+
+
+
+		RECT rw;
+		GetClientRect(hDialog, &rw);
+
+		int lastCard = cards.size - 1;
+		
+
+		//for(int x=)
+
+	
+	}
+	
+	//отрисовка колоды битых карт
 	void DrawDeck(HWND hDialog, HINSTANCE hInst, Player& cards)
 	{
 		if (cards.size == 0)

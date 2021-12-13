@@ -5,7 +5,7 @@ class Player
 {
 	size_t score = 0; 
 	size_t scoreAll = 0; 
-	int uno = -1; //-1 - не использовалось, 0 - забыли сказать, 1 - сказали
+	int uno = -1; //-1 - не использовалось, 0 - забыл сказать, 1 - сказал
 	BOOL skipStroke = FALSE; //пропуск хода
 public:
 	TCHAR* name = NULL;

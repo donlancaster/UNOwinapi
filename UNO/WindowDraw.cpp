@@ -86,7 +86,7 @@ void WindowDraw::SetPlayMenu(BOOL vsBot)
 	UDACCEL pAcceleration[3] = { { 1, 1 } };
 	spinplcount = CreateWindow(UPDOWN_CLASS, NULL, WS_CHILD | WS_VISIBLE | UDS_ARROWKEYS, (rWindow.right - 200) / 2 + 240, 360, 20, 40, hDialog, NULL, hInst, NULL);
 	SendMessage(spinplcount, UDM_SETRANGE32, 2, 4);
-	SendMessage(spinplcount, UDM_SETACCEL, 1, LPARAM(pAcceleration));
+	SendMessage(spinplcount, UDM_SETACCEL, 1, LPARAM(pAcceleration)); //Sets the acceleration for an up-down control.
 	SendMessage(spinplcount, UDM_SETBUDDY, WPARAM(editspinplcount), 0);
 
 	playVS = CreateWindow(TEXT("STATIC"), NULL, WS_CHILD | WS_VISIBLE | SS_BITMAP, (rWindow.right - 200) / 2 - 150, 200, 220, 60, hDialog, NULL, hInst, NULL);
@@ -306,7 +306,9 @@ void WindowDraw::DrawPlPause(TCHAR* name1, TCHAR* name2, TCHAR* message, size_t 
 			plnames.push_back(plN);
 			ShowWindow(plN, SW_HIDE);
 			ShowWindow(plN, SW_SHOW);
+		
 		}
+	
 		//выбор имен игроков
 		hGamePause[2] = CreateWindow(TEXT("STATIC"), NULL, WS_CHILD | WS_VISIBLE | SS_BITMAP, (rWindow.right - 280) / 2, yNameStatic, 280, 70, hDialog, NULL, hInst, NULL);
 		SendMessage(hGamePause[2], STM_SETIMAGE, (WPARAM)IMAGE_BITMAP, (LPARAM)LoadBitmap(hInst, MAKEINTRESOURCE(IDB_BITMAP96)));
@@ -473,9 +475,9 @@ void WindowDraw::DestroyMessageAboutPlayers() {
 
 void WindowDraw::EndGameWindow(vector<Player*>& pl) {
 	DestroyGameField();
-	for (size_t i = 0; i < pl.size(); i++) //очки всех игроков
+	for (size_t i = 0; i < pl.size(); i++) 
 	{
 
 	}
-	//играть снова или выйти
+
 }
