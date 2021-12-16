@@ -7,7 +7,6 @@ UNODlg::UNODlg(void)
 	ptr = this;
 }
 
-
 void UNODlg::Cls_OnClose(HWND hwnd)
 {
 	DestroyWindow(hwnd);
