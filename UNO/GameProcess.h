@@ -201,7 +201,9 @@ public:
 
 
 
-
+	void DrawAnimation(int color, int number) {
+		
+	}
 
 
 	//здесь надо сделать анимацию карты
@@ -211,9 +213,21 @@ public:
 		int c = (*(pl.begin() + plNum))->GetColor(num); //цвет карты, которую кладут
 		int n = (*(pl.begin() + plNum))->GetType(num); //номер
 		if (IsCorrectCard(*(pl.begin() + plNum), c, n, interrupt)) //проверка, что такую карту можно положить на предыдущую
-		{
-			cards.AddCard(c, n);
+		{	
 			(*(pl.begin() + plNum))->DelCard(num);
+
+
+
+			if (!(*(pl.begin() + plNum))->IsBot()) {
+				//тут рисую
+				DrawAnimation(c, n);
+			}
+
+			
+			
+
+			cards.AddCard(c, n);
+		
 		}
 	}
 

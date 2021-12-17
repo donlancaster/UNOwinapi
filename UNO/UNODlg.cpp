@@ -91,10 +91,6 @@ void UNODlg::Cls_OnCommand(HWND hwnd, int id, HWND hwndCtl, UINT codeNotify)
 		int dCheck = gp.DeckChecked(wd);
 
 
-
-
-
-
 		if (dCheck == 1) //если после взятия карты из колоды нечем ходить
 		{
 			gp.UpdateAfterMove(wd); //следующий игрок
@@ -116,15 +112,6 @@ void UNODlg::Cls_OnCommand(HWND hwnd, int id, HWND hwndCtl, UINT codeNotify)
 		else if (dCheck == 0) {
 			gp.Update(wd);
 		}
-
-
-
-
-
-
-
-
-
 
 	}
 	if (id >= ID_COLORS_RED && id <= ID_COLORS_GREEN && gp.checkColor && !gp.botGo) //выбор цвета следующих карт

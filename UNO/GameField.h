@@ -81,20 +81,23 @@ public:
 	
 	void SetDetailsField(HWND hDialog, HINSTANCE hInst, vector<Player*> &pl, BOOL dir, size_t nowmove, Player & cards, BOOL need, int cnum = 0)
 	{
-		DestroyDetailsField(); //очистка старых данных с экрана
-		DrawDirection(hDialog, hInst, dir);
-
-
+		
 		DrawCards(hDialog, hInst, *(pl[0])); //отрисовка карт текущего игрока
 
-		//if(nowmove == 1)
+		if (!((pl[0]->IsBot()))) {
+			DrawAnimation(hDialog, hInst, cards);
+			
+		}
 		
-		DrawAnimation(hDialog, hInst, cards, *(pl[0]));
 		wchar_t asd[50];
 		_itow(cards.size, asd, 10);
 		OutputDebugString(asd);
 
-		
+		DestroyDetailsField(); //очистка старых данных с экрана
+		DrawDirection(hDialog, hInst, dir);
+		DrawCards(hDialog, hInst, *(pl[0])); //отрисовка карт текущего игрока
+
+
 		DrawDeck(hDialog, hInst, cards);
 		SetNeedColor(hDialog, need);
 		SetNowColor(hDialog, hInst, cnum);
@@ -347,27 +350,71 @@ public:
 	}
 	
 	
+	void DrawSingleAnimtionCard(HWND hDialog, HINSTANCE hInst, int posX, int posY, int idBitmap) {
+		HWND h = CreateWindow(TEXT("STATIC"), NULL, WS_CHILD | WS_VISIBLE | SS_BITMAP, posX, posY, 90, 136, hDialog, NULL, hInst, NULL);
+		RECT r;
+		GetClientRect(h, &r);
+		SendMessage(h, STM_SETIMAGE, (WPARAM)IMAGE_BITMAP, (LPARAM)LoadBitmap(hInst, MAKEINTRESOURCE(idBitmap)));
+		ShowWindow(h, SW_HIDE);
+		ShowWindow(h, SW_SHOW);
+	}
 
+	
 
-	void DrawAnimation(HWND hDialog, HINSTANCE hInst, Player& cards, Player& playerCards)// анимация 
+	void DrawAnimation(HWND hDialog, HINSTANCE hInst, Player & deck)// анимация 
 	{
 
-		if (cards.size == 0)
-			return;
-
+		int color = deck.color[deck.size - 1];
+		int number = deck.color[deck.size - 1];
 
 
 		RECT rw;
 		GetClientRect(hDialog, &rw);
 
-		int lastCard = cards.size - 1;
-		
+		int startPositionX = 400;
+		int startPositionY = 400;
 
+
+	//	HWND h = CreateWindow(TEXT("STATIC"), NULL, WS_CHILD | WS_VISIBLE | SS_BITMAP, startPositionX, startPositionY, 90, 136, hDialog, NULL, hInst, NULL);
+		//RECT r;
+		//GetClientRect(h, &r);
+
+		INT idBitmap = 0;
+		if (color <= 3)
+		{
+			//INT id = color * 13 + number;
+			//SendMessage(h, STM_SETIMAGE, (WPARAM)IMAGE_BITMAP, (LPARAM)LoadBitmap(hInst, MAKEINTRESOURCE(IDB_BITMAP1 + id)));
+			idBitmap = IDB_BITMAP1 + color * 13 + number;
+		}
+		else if (color == 4) {
+			//SendMessage(h, STM_SETIMAGE, (WPARAM)IMAGE_BITMAP, (LPARAM)LoadBitmap(hInst, MAKEINTRESOURCE(IDB_BITMAP53)));
+			idBitmap = IDB_BITMAP53;
+		}
+		else if (color == 5) {
+			//SendMessage(h, STM_SETIMAGE, (WPARAM)IMAGE_BITMAP, (LPARAM)LoadBitmap(hInst, MAKEINTRESOURCE(IDB_BITMAP54)));
+			idBitmap = IDB_BITMAP54;
+		}
+		int j = 400;
+		for (int i = 400; i > 200; i -= 15) {
+			DrawSingleAnimtionCard(hDialog, hInst, i, j, idBitmap);
+			j += 5;
+			Sleep(100);
+
+		}
+		
+		
 		//for(int x=)
 
 	
 	}
 	
+
+
+
+
+
+
+
 	//отрисовка колоды битых карт
 	void DrawDeck(HWND hDialog, HINSTANCE hInst, Player& cards)
 	{

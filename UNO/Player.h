@@ -14,6 +14,11 @@ public:
 	size_t size = 0; //кол-во карт
 	bool noBot = false;
 
+
+	bool IsBot() {
+		return !noBot;
+	}
+
 	void PlayerCopy(Player & pl)
 	{
 		pl.score = score;
